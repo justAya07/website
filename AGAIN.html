@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brownie Bliss - Brownies Premium Lembut & Elegan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #f8f5f2 0%, #e8e2d9 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4a574;
+        }
+
+        .cart-btn {
+            background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9f7f4 0%, #ede8e0 100%);
+            padding: 120px 2rem 80px;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #6b6b6b;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 165, 116, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #d4a574;
+            border: 2px solid #d4a574;
+        }
+
+        .btn-secondary:hover {
+            background: #d4a574;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f8f5f2, #e8e2d9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #d4a574, #b8956e);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-card:hover .product-image::before {
+            opacity: 0.1;
+        }
+
+        .product-image i {
+            font-size: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .product-card:hover .product-image i {
+            opacity: 1;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4a574;
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: #6b6b6b;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: linear-gradient(135deg, #d4a574 0%, #b8956e 100%);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212, 165, 116, 0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            background: linear-gradient(135deg, #f9f7f4 0%, #ede8e0 100%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #6b6b6b;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, #d4a574, #b8956e);
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #6b6b6b;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #d4a574;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #d4a574;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1.5rem;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Brownie Bliss</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <button class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                Keranjang
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1 class="fade-in-up">Brownies Premium<br>Lembut & Elegan</h1>
+        <p>Nikmati kelezatan brownies homemade dengan bahan premium terbaik. Lembut, moist, dan penuh cinta dalam setiap gigitan.</p>
+        <div class="cta-buttons">
+            <a href="#products" class="btn-primary">
+                <i class="fas fa-shopping-bag"></i>
+                Pesan Sekarang
+            </a>
+            <a href="#about" class="btn-secondary">
+                <i class="fas fa-heart"></i>
+                Kenal Kami
+            </a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <h2 class="section-title">Pilihan Brownies Kami</h2>
+        <div class="products-grid">
+            <div class="product-card fade-in-up">
+                <div class="product-image">
+                    <i class="fas fa-cookie-bite"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Chocolate</h3>
+                    <div class="product-price">Rp 45.000</div>
+                    <p class="product-description">Brownies coklat klasik dengan tekstur fudgy yang meleleh di mulut. Menggunakan coklat premium Belgia.</p>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in-up">
+                <div class="product-image">
+                    <i class="fas fa-lemon"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Lemon Cheesecake</h3>
+                    <div class="product-price">Rp 55.000</div>
+                    <p class="product-description">Perpaduan sempurna lemon segar dan cheesecake creamy di atas brownies coklat. Sensasi unik!</p>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in-up">
+                <div class="product-image">
+                    <i class="fas fa-nut"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Walnut Crunch</h3>
+                    <div class="product-price">Rp 50.000</div>
+                    <p class="product-description">Brownies dengan potongan walnut premium yang memberikan tekstur renyah dan rasa kaya.</p>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+            </div>
+
+            <div class="product-card fade-in-up">
+                <div class="product-image">
+                    <i class="fas fa-strawberry"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Strawberry Dream</h3>
+                    <div class="product-price">Rp 52.000</div>
+                    <p class="product-description">Brownies coklat dengan lapisan strawberry compote dan krim segar. Manis dan fruity!</p>
+                    <button class="add-to-cart">Tambah ke Keranjang</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Tentang Brownie Bliss</h2>
+                <p>Kami adalah penggemar brownies sejati yang menciptakan kue brownies premium dengan cinta dan dedikasi. Setiap brownies dibuat fresh setiap hari menggunakan bahan-bahan terbaik yang dipilih secara ketat.</p>
+                <p>Dengan resep rahasia turun-temurun dan oven khusus, kami menghadirkan brownies yang lembut, moist, dan penuh rasa. Pengiriman cepat ke seluruh kota dengan packaging elegan.</p>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-heart" style="font-size: 12rem; color: #d4a574; opacity: 0.8;"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Siap Pesan?</h2>
+        <p>Hubungi kami sekarang untuk pre-order atau tanyakan ketersediaan stok hari ini!</p>
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 2rem;">
+            <a href="https://wa.me/6281234567890" class="btn-primary" style="padding: 1rem 2rem;">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="mailto:hello@browniebliss.com" class="btn-secondary" style="padding: 1rem 2rem;">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Brownie Bliss</h3>
+                <p>Brownies premium homemade dengan cinta. Lembut, moist, dan penuh rasa.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Produk</h3>
+                <a href="#">Classic Chocolate</a>
+                <a href="#">Lemon Cheesecake</a>
+                <a href
